@@ -101,3 +101,17 @@ module.exports.getCart = async (req, res) => {
         })
     })
 }
+
+module.exports.getCartQuantity = async(req,res)=>{
+    const id = req.query.userId;
+    cartSchema.find({userId:id}).then((result) => {
+        console.log(result)
+        res.status(200).send({
+            cart: result[0]
+        })
+    }).catch((error) => {
+        res.status(400).send({
+            error: error
+        })
+    })
+}
