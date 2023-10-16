@@ -1,5 +1,5 @@
 const {Router}= require("express");
-const {insertProduct, getProductByCategory, getProductById, searchProductByName} = require("../Controller/productHandler");
+const {insertProduct, getProductByCategory, getProductById, searchProductByName, getProductBySubCategory} = require("../Controller/productHandler");
 
 const router= Router();
 
@@ -7,5 +7,6 @@ router.post("/insertProduct",insertProduct);
 router.get("/products",getProductByCategory);
 router.get("/product",getProductById);
 router.post("/searchByName",searchProductByName);
+router.post("/getProductBySubCategory",getProductBySubCategory);
 
 module.exports=router;

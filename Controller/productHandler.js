@@ -122,3 +122,21 @@ module.exports.searchProductByName = async(req,res)=>{
         })
     })
 }
+
+module.exports.getProductBySubCategory = async (req, res) => {
+    let category = req.query.category;
+    productSchema.find({ subcategory: subcategory }).then((result) => {
+        result = result.map(product => ({
+            ...product._doc,
+            id: product._id
+        }));
+        res.status(200).json({
+            product: result
+        });
+    })
+        .catch((error) => {
+            res.status(200).json({
+                error: error
+            })
+        })
+}
