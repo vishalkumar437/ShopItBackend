@@ -125,7 +125,7 @@ module.exports.searchProductByName = async(req,res)=>{
 
 module.exports.getProductBySubCategory = async (req, res) => {
     let category = req.query.category;
-    productSchema.find({ subcategory: subcategory }).then((result) => {
+    productSchema.find({ subcategory: category }).then((result) => {
         result = result.map(product => ({
             ...product._doc,
             id: product._id
